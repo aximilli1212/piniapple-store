@@ -1,12 +1,14 @@
-import {defineStore} from "pinia"
-
+import { defineStore } from "pinia";
 export const useProductStore = defineStore("ProductStore", {
-    state: () => ({
-       products:[],
-    }),
-actions: {
-    async fetchProducts() {
-        this.products = (await import("@/data/products.json")).default;
+    state: () => {
+        return {
+            products: [],
+        };
     },
-}
-})
+    actions: {
+        async fetchProducts() {
+            this.products = (await import("@/data/products.json")).default;
+        },
+    },
+    // getters
+});
